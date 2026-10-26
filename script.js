@@ -52,3 +52,22 @@ window.addEventListener('resize', updateProgress);
 updateProgress();
 
 document.querySelector('#current-year').textContent = new Date().getFullYear();
+
+// Fine-pointer depth uses one animation frame per paint and resets on exit.
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+const portrait = document.querySelector('.hero-visual .image-frame');
+let portraitFrame;
+portrait?.addEventListener('pointermove', (event) => {
+	if (motionPreference.matches || !finePointer.matches) return;
+	cancelAnimationFrame(portraitFrame);
+	portraitFrame = requestAnimationFrame(() => {
+		const bounds = portrait.getBoundingClientRect();
+		portrait.style.setProperty('--tilt-x', `${(0.5 - (event.clientY - bounds.top) / bounds.height) * 12}deg`);
+		portrait.style.setProperty('--tilt-y', `${((event.clientX - bounds.left) / bounds.width - 0.5) * 12}deg`);
+	});
+});
+portrait?.addEventListener('pointerleave', () => {
+	cancelAnimationFrame(portraitFrame);
+	portrait.style.removeProperty('--tilt-x');
+	portrait.style.removeProperty('--tilt-y');
+});
