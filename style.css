@@ -274,3 +274,17 @@ h1 em { color: transparent; background: linear-gradient(105deg, var(--terracotta
  .motion-track { transform: none; }
  .section-heading h2.visible em, .projects-head h2.visible em { opacity: 1; }
 }
+
+/* VB identity: a sprouting monogram with a curved field line. */
+.brand { gap: 12px; }
+.brand-logo { width: 52px; height: 52px; flex-shrink: 0; filter: drop-shadow(0 4px 6px rgba(24,53,42,.14)); transition: transform .35s ease; }
+.brand:hover .brand-logo { transform: rotate(-6deg) translateY(-2px); }
+.brand-name { display: flex; flex-direction: column; gap: 5px; font-size: 14px; letter-spacing: -.03em; }
+.brand-name small { font-family: var(--mono); font-size: 8px; font-weight: 400; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); }
+.contact-stamp { display: grid; place-items: center; padding: 0; }
+.contact-stamp img { width: 76px; height: 76px; border-radius: 22px; }
+@media (max-width: 480px) {
+ .brand-logo { width: 44px; height: 44px; }
+ .brand-name { font-size: 12px; }
+ .brand-name small { font-size: 7px; }
+}

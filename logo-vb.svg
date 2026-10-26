@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <title>VB — Vinicius Biasetto</title>
+  <rect x="2" y="2" width="92" height="92" rx="26" fill="#18352a"/>
+  <rect x="8" y="8" width="80" height="80" rx="21" stroke="#c9da73" stroke-opacity=".28"/>
+  <path d="M19 35 32 66 45 35" stroke="#fbfaf6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M53 35v31h12c14 0 15-16 1-16H53m0-15h10c13 0 14 15 1 15" stroke="#fbfaf6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 31C44 18 56 14 67 16c-1 12-11 19-21 15Z" fill="#c9da73"/>
+  <path d="m42 37 15-14" stroke="#c9da73" stroke-width="3" stroke-linecap="round"/>
+  <path d="M25 78c14-7 32-7 46 0" stroke="#d96f4c" stroke-width="3" stroke-linecap="round"/>
+</svg>
