@@ -4,12 +4,14 @@ const mainNav = document.querySelector('.main-nav');
 menuToggle?.addEventListener('click', () => {
 	const isOpen = mainNav.classList.toggle('open');
 	menuToggle.setAttribute('aria-expanded', String(isOpen));
+	menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
 });
 
 document.querySelectorAll('.main-nav a').forEach((link) => {
 	link.addEventListener('click', () => {
 		mainNav.classList.remove('open');
 		menuToggle?.setAttribute('aria-expanded', 'false');
+		menuToggle?.setAttribute('aria-label', 'Abrir menu');
 	});
 });
 
@@ -71,3 +73,19 @@ portrait?.addEventListener('pointerleave', () => {
 	portrait.style.removeProperty('--tilt-x');
 	portrait.style.removeProperty('--tilt-y');
 });
+
+function closeMenu() {
+ mainNav.classList.remove('open');
+ menuToggle.setAttribute('aria-expanded', 'false');
+ menuToggle.setAttribute('aria-label', 'Abrir menu');
+}
+document.addEventListener('keydown', (event) => {
+ if (event.key === 'Escape' && mainNav.classList.contains('open')) {
+  closeMenu();
+  menuToggle.focus();
+ }
+});
+document.addEventListener('click', (event) => {
+ if (!event.target.closest('.site-header')) closeMenu();
+});
+window.matchMedia('(min-width: 1001px)').addEventListener('change', closeMenu);
